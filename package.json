@@ -8,9 +8,11 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "app:start": "docker-compose up -d",
-        "app:stop": "docker-compose down",
-        "app:ssh": "./vendor/bin/sail shell"
+        "app:start": "./vendor/bin/sail up -d",
+        "app:stop": "./vendor/bin/sail down",
+        "app:ssh": "./vendor/bin/sail shell",
+        "app:reboot": "./vendor/bin/sail down && ./vendor/bin/sail up -d"
+        
     },
     "devDependencies": {
         "axios": "^0.25",
