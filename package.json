@@ -12,8 +12,8 @@
         "app:stop": "./vendor/bin/sail down",
         "app:ssh": "./vendor/bin/sail shell",
         "app:reboot": "./vendor/bin/sail down && ./vendor/bin/sail up -d",
-        "app:containers remove": "docker container rm $(docker container ls -aq)"
-        
+        "db:ssh": "docker exec -t -i laragigs_mysql_1 /bin/bash"
+
     },
     "devDependencies": {
         "axios": "^0.25",
