@@ -12,7 +12,7 @@
         "app:stop": "./vendor/bin/sail down",
         "app:ssh": "./vendor/bin/sail shell",
         "app:reboot": "./vendor/bin/sail down && ./vendor/bin/sail up -d",
-        "db:ssh": "docker exec -t -i laragigs_mysql_1 /bin/bash"
+        "db:ssh": "docker exec -t -i web_db /bin/bash"
 
     },
     "devDependencies": {
