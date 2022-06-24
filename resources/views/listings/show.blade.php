@@ -1,5 +1,4 @@
-@extends('layout')
-@section('content')
+<x-layout>
 @include('partials._search')
     {{-- Single Listing --}}
     <a href="./" class="inline-block text-black ml-4 mb-4"
@@ -48,5 +47,4 @@
             </div>
         </div>
     </x-card>
-
-@endsection
+</x-layout>>
