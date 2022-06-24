@@ -21,7 +21,7 @@ use App\Models\Listing;
 Route::get('/index.html', function () {
     return view('welcome');
 });
-Route::get('',[ListingController::class,'index']);
+Route::get('/',[ListingController::class,'index']);
 Route::get('listings',[ListingController::class,'index']);
 Route::get('/listings/{listing}',[ListingController::class,'show']);
 
