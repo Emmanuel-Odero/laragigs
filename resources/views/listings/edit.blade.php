@@ -145,7 +145,7 @@
                 placeholder="Include tasks, requirements, salary, etc"
             >{{$listing->description}}</textarea>
             @error('description')
-                <p class="text-red-500 text-xs mt-1">{{$listing->description}}</p>
+                <p class="text-red-500 text-xs mt-1">{{$message}}</p>
             @enderror
         </div>
 
