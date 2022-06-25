@@ -29,14 +29,13 @@ Route::get('/listings/create',[ListingController::class,'create']);
 Route::post('/listings',[ListingController::class,'store']);
 // edit ---Show edit listing Form
 Route::get('/listings/{listing}/edit',[ListingController::class,'edit']);
-
-
+// update ---update Edited listing
+Route::put('/listings/{listing}', [ListingController::class, 'update']);
 
 
 // Common Routes:
 // index ---shows all job listings
 // store ---store new listing
-// update ---update listing
 // destroy ---Delete listing
 
 // show ---show single listing
