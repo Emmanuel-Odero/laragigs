@@ -23,13 +23,22 @@ Route::get('/index.html', function () {
 });
 Route::get('/',[ListingController::class,'index']);
 Route::get('/listings',[ListingController::class,'index']);
-Route::get('/listings/{listing}',[ListingController::class,'show']);
+// create ---show create form to create new liting
+Route::get('/listings/create',[ListingController::class,'create']);
+// store ---store listing data
+Route::post('/listings',[ListingController::class,'store']);
+
+
+
+
+
 
 // Common Routes:
 // index ---shows all job listings
-// show ---show all single listing
-// create ---show form to create new liting
 // store ---store new listing
 // edit ---show form to edit listing
 // update ---update listing
 // destroy ---Delete listing
+
+// show ---show single listing
+Route::get('/listings/{listing}',[ListingController::class,'show']);

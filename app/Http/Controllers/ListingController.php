@@ -22,4 +22,13 @@ class ListingController extends Controller
         'listing'=>$listing
     ]);
     }
+    // Create Listing
+    public function create(){
+        return view('listings.create');
+    }
+    // Store Listing
+    public function store(Request $request){
+        dd($request->all());
+        // return view('');
+    }
 }
