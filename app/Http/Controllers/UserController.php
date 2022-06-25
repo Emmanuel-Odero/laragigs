@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Illuminate\Routing\Controller;
+use Spatie\LaravelIgnition\Recorders\DumpRecorder\DumpHandler;
 
 class UserController extends Controller
 {
@@ -29,5 +30,11 @@ class UserController extends Controller
         auth()->login($user);
 
         return redirect('/')->with('message', 'Account Successfully Created You Logged In');
+    }
+    public function logout(Request $request){
+        auth()->logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/')->with('message','Successfully Loggedout!');
     }
 }
