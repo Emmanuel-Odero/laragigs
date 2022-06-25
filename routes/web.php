@@ -33,11 +33,5 @@ Route::get('/listings/{listing}/edit',[ListingController::class,'edit']);
 Route::put('/listings/{listing}', [ListingController::class, 'update']);
 // Delete ---Delete listing
 Route::delete('/listings/{listing}', [ListingController::class, 'delete']);
-
-// Common Routes:
-// index ---shows all job listings
-// store ---store new listing
-// destroy ---Delete listing
-
 // show ---show single listing
 Route::get('/listings/{listing}',[ListingController::class,'show']);
