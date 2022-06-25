@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
-use PhpParser\Node\Expr\List_;
 
 class ListingController extends Controller
 {
