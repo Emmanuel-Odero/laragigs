@@ -54,6 +54,10 @@ class ListingController extends Controller
     }
     // Update Data in Listing Form
     public function update(Request $request, Listing $listing){
+        //Making sure that the logged in user owns the listing they want to Update
+        if($listing->user_id !=auth()->id()){
+            abort(403, 'Unauthorized Action');
+        }
         // dd($request->file('logo'));
         $formFields = $request->validate([
             'title'=>'required',
