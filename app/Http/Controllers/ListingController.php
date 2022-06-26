@@ -74,7 +74,12 @@ class ListingController extends Controller
         $listing->update($formFields);
         return back()->with('message','Listing Successfuly Updated');
     }
+    //Delete/Destroy Listing
     public function delete(Listing $listing){
+        //Making sure that the logged in user owns the listing they want to Delete/Destroy
+        if($listing->user_id !=auth()->id()){
+            abort(403, 'Unauthorized Action');
+        }
         $listing->delete();
         return redirect('/')->with('message','Listing Successfuly Deleted');
     }
