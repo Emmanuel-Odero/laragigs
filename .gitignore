@@ -14,3 +14,4 @@ yarn-error.log
 /.vscode
 supervisord.log
 supervisord.pid
+node_modules
