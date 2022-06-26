@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\Controller;
-use App\Http\Controllers\ListingController;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use App\Models\Listing;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 
 
 /*
@@ -22,14 +23,34 @@ Route::get('/index.html', function () {
     return view('welcome');
 });
 Route::get('/',[ListingController::class,'index']);
-Route::get('listings',[ListingController::class,'index']);
+Route::get('/listings',[ListingController::class,'index']);
+// create ---show create form to create new liting
+Route::get('/listings/create',[ListingController::class,'create'])
+->middleware('auth');
+// store ---store listing data
+Route::post('/listings',[ListingController::class,'store'])
+->middleware('auth');;
+// edit ---Show edit listing Form
+Route::get('/listings/{listing}/edit',[ListingController::class,'edit'])
+->middleware('auth');;
+// update ---update Edited listing
+Route::put('/listings/{listing}', [ListingController::class, 'update'])
+->middleware('auth');;
+// Delete ---Delete listing
+Route::delete('/listings/{listing}', [ListingController::class, 'delete'])
+->middleware('auth');;
+// show ---show single listing
 Route::get('/listings/{listing}',[ListingController::class,'show']);
-
-// Common Routes:
-// index ---shows all job listings
-// show ---show all single listing
-// create ---show form to create new liting
-// store ---store new listing
-// edit ---show form to edit listing
-// update ---update listing
-// destroy ---Delete listing
+//Show Register/Create Form
+Route::get('/register', [UserController::class, 'create'])
+->middleware('guest');;
+//Create New Users
+Route::post('/users',[UserController::class,'store']);
+//Log User Out
+Route::post('logout', [UserController::class,'logout'])
+->middleware('auth');;
+//show Login Form
+Route::get('/login', [UserController::class, 'login'])->name('login')
+->middleware('guest');;
+//Log In User ~submitting the login details
+Route::post('/users/authenticate', [UserController::class, 'authenticate']);
