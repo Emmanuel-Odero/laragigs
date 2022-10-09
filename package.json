@@ -8,13 +8,13 @@
         "hot": "mix watch --hot",
         "prod": "npm run production",
         "production": "mix --production",
-        "app:build": "docker-compose build",
-        "app:start": "docker-compose up -d",
-        "app:restart": "docker-compose restart",
+        "app:build": "sudo docker-compose build",
+        "app:start": "sudo docker-compose up -d",
+        "app:restart": "sudo docker-compose restart",
         "app:stop": "./vendor/bin/sail down",
-        "app:ssh": "docker-compose exec laragigs bash",
+        "app:ssh": "sudo sudo docker-compose exec laragigs bash",
         "app:reboot": "./vendor/bin/sail down && ./vendor/bin/sail up -d",
-        "db:ssh": "docker exec -t -i web_db /bin/bash"
+        "db:ssh": "sudo docker exec -t -i web_db /bin/bash"
 
     },
     "devDependencies": {
